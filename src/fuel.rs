@@ -1,3 +1,5 @@
+use std::fmt;
+
 #[derive(Debug)]
 pub enum HeatTier {
     Cool,
@@ -11,9 +13,24 @@ pub enum Fuel {
     GaseousFuel,
     HeavyOil
 }
+impl fmt::Display for Fuel {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", match self {
+            Fuel::Oil => "Oil",
+            Fuel::GaseousFuel => "GaseousFuel",
+            Fuel::HeavyOil => "HeavyOil",
+        })
+    }
+}
 
 #[derive(Debug)]
 pub struct MJ(pub f64);
+impl fmt::Display for MJ {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let MJ(value) = self;
+        write!(f, "{} MJ", value)
+    }
+}
 
 pub trait Burn {
     fn total(&self) -> MJ;
