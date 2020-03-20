@@ -1,3 +1,8 @@
+mod fuel;
+
+use fuel::Fuel;
+
 fn main() {
-    println!("Hello, world!");
+    let oil = Fuel::Oil;
+    println!("Oil: {:?}", oil);
 }
