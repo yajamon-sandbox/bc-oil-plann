@@ -13,7 +13,7 @@ pub enum Fuel {
 }
 
 #[derive(Debug)]
-pub struct MJ(pub i64);
+pub struct MJ(pub f64);
 
 pub trait Burn {
     fn total(&self) -> MJ;
@@ -22,9 +22,9 @@ pub trait Burn {
 impl Burn for Fuel {
     fn total(&self) -> MJ {
         match self {
-            Fuel::Oil => MJ(7500),
-            Fuel::HeavyOil => MJ(20000),
-            Fuel::GaseousFuel => MJ(15000),
+            Fuel::Oil => MJ(7500.0),
+            Fuel::HeavyOil => MJ(20000.0),
+            Fuel::GaseousFuel => MJ(15000.0),
         }
     }
 }

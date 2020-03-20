@@ -19,7 +19,7 @@ impl Burn for Fluid {
     fn total(&self) -> MJ {
         let MJ(total) = self.fuel.total();
         let MilliBuckets(amount) = self.amount;
-        MJ(total / 1000 * amount)
+        MJ(total / 1000.0 * amount as f64)
     }
 }
 
@@ -40,7 +40,7 @@ impl Distiller {
                 source: fluid!(Fuel::Oil, 8),
                 distillate: fluid!(Fuel::GaseousFuel, 16),
                 residue: fluid!(Fuel::HeavyOil, 3),
-                cost: MJ(32),
+                cost: MJ(32.0),
             }),
             _ => None,
         }
