@@ -28,7 +28,7 @@ pub struct Recipe {
     source: Fluid,
     distillate: Fluid,
     residue: Fluid,
-    cost: MJ
+    cost: MJ,
 }
 
 pub struct Distiller {}

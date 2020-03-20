@@ -11,15 +11,19 @@ pub enum HeatTier {
 pub enum Fuel {
     Oil,
     GaseousFuel,
-    HeavyOil
+    HeavyOil,
 }
 impl fmt::Display for Fuel {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", match self {
-            Fuel::Oil => "Oil",
-            Fuel::GaseousFuel => "GaseousFuel",
-            Fuel::HeavyOil => "HeavyOil",
-        })
+        write!(
+            f,
+            "{}",
+            match self {
+                Fuel::Oil => "Oil",
+                Fuel::GaseousFuel => "GaseousFuel",
+                Fuel::HeavyOil => "HeavyOil",
+            }
+        )
     }
 }
 
