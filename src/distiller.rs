@@ -3,8 +3,8 @@ use crate::fuel::*;
 
 #[derive(Debug)]
 pub struct Fluid {
-    fuel: Fuel,
-    amount: MilliBuckets,
+    pub fuel: Fuel,
+    pub amount: MilliBuckets,
 }
 macro_rules! fluid {
     ($fuel:expr, $amount:expr) => {

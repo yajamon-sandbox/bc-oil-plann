@@ -4,11 +4,24 @@ mod fuel;
 
 use buckets::*;
 use distiller::*;
-use fuel::Fuel;
+use fuel::*;
 
 fn main() {
-    let oil = (Fuel::Oil, MB::from(Buckets(1)));
-    println!("Oil: {:?}", oil);
-    let recipe = Distiller::recipe(oil.0);
-    println!("recipe: {:?}", recipe);
+    analyze(Fluid {
+        fuel: Fuel::Oil,
+        amount: Buckets(1).into(),
+    });
+}
+
+fn analyze(fluid: Fluid) {
+    let mut plan_number = 0;
+    let fluid = &fluid;
+    plan_number += 1;
+    println!("Plan {}:", plan_number);
+    println!(
+        "fuel: {}, amount: {}, total: {}",
+        fluid.fuel,
+        fluid.amount,
+        fluid.total()
+    );
 }
