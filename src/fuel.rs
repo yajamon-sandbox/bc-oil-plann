@@ -8,4 +8,6 @@ pub enum HeatTier {
 #[derive(Debug)]
 pub enum Fuel {
     Oil,
+    GaseousFuel,
+    HeavyOil
 }
