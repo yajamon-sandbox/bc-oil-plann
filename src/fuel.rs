@@ -7,5 +7,5 @@ pub enum HeatTier {
 
 #[derive(Debug)]
 pub enum Fuel {
-    Oil
+    Oil,
 }

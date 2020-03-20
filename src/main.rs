@@ -1,8 +1,8 @@
-mod fuel;
 mod buckets;
+mod fuel;
 
-use fuel::Fuel;
 use buckets::*;
+use fuel::Fuel;
 
 fn main() {
     let oil = (Fuel::Oil, MB::from(Buckets(1)));
