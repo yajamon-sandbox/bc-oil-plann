@@ -14,11 +14,21 @@ macro_rules! fluid {
         }
     };
 }
+
+impl Burn for Fluid {
+    fn total(&self) -> MJ {
+        let MJ(total) = self.fuel.total();
+        let MilliBuckets(amount) = self.amount;
+        MJ(total / 1000 * amount)
+    }
+}
+
 #[derive(Debug)]
 pub struct Recipe {
     source: Fluid,
     distillate: Fluid,
     residue: Fluid,
+    cost: MJ
 }
 
 pub struct Distiller {}
@@ -30,6 +40,7 @@ impl Distiller {
                 source: fluid!(Fuel::Oil, 8),
                 distillate: fluid!(Fuel::GaseousFuel, 16),
                 residue: fluid!(Fuel::HeavyOil, 3),
+                cost: MJ(32),
             }),
             _ => None,
         }
