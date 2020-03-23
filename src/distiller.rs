@@ -25,16 +25,16 @@ impl Burn for Fluid {
 
 #[derive(Debug)]
 pub struct Recipe {
-    source: Fluid,
-    distillate: Fluid,
-    residue: Fluid,
-    cost: MJ,
+    pub source: Fluid,
+    pub distillate: Fluid,
+    pub residue: Fluid,
+    pub cost: MJ,
 }
 
 pub struct Distiller {}
 
 impl Distiller {
-    pub fn recipe(fuel: Fuel) -> Option<Recipe> {
+    pub fn recipe(fuel: &Fuel) -> Option<Recipe> {
         match fuel {
             Fuel::Oil => Some(Recipe {
                 source: fluid!(Fuel::Oil, 8),
